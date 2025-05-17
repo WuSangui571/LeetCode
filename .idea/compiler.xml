@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="2025-05-12" />
         <module name="2025-05-15" />
+        <module name="2025-05-17" />
+        <module name="2025-05-12" />
         <module name="2025-05-13" />
       </profile>
     </annotationProcessing>
