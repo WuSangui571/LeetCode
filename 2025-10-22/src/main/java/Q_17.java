@@ -48,6 +48,7 @@ public class Q_17 {
         }
         int currentNumber = Integer.parseInt(String.valueOf(digits.charAt(index)));
         String currentString = map.get(currentNumber);
+        // 追加对应的字母组合，并递归调用，然后删除末尾的字母
         for (int i = 0; i < currentString.length(); i++) {
             sb.append(currentString.charAt(i));
             f(digits,sb,index+1);
@@ -55,24 +56,7 @@ public class Q_17 {
         }
 
     }
-    public static void addNumber(String characterString){
-        int len_characterString = characterString.length();
-        int size_res = res.size();
 
-        int level;
-        if (res.isEmpty()){
-            level = 0;
-        }else {
-            level = res.getFirst().length();
-        }
-        if (level == 0){
-            for (int i = 0; i < len_characterString; i++) {
-                res.add(String.valueOf(characterString.charAt(i)));
-            }
-        }else {
 
-        }
-
-    }
 
 }

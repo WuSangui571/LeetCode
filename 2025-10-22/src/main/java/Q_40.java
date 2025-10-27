@@ -1,14 +1,13 @@
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @Author: sangui
  * @CreateTime: 2025-10-22
- * @Description: 39. 组合总和 去重复！！！！！！！！！
+ * @Description: 40. 组合总和Ⅱ
  * @Version: 1.0
  */
-public class Q_39 {
+public class Q_40 {
     static List<List<Integer>> res = new ArrayList<>(new ArrayList<>());
     public static void main(String[] args) {
         int[] candidates = {2,3,6,7};
@@ -28,7 +27,7 @@ public class Q_39 {
 //        }
     }
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
-        f(candidates,new ArrayList<>(),target,0);
+        f(candidates,new ArrayList<>(),target,-1);
         List<List<Integer>> res2 = res;
         res = new ArrayList<>(new ArrayList<>());
         return res2;
@@ -49,7 +48,7 @@ public class Q_39 {
             //currentCandidates.removeLast();
             return;
         }
-        for (int i = index; i < candidates.length; i++) {
+        for (int i = index + 1; i < candidates.length; i++) {
             currentCandidates.add(candidates[i]);
             //System.out.println(currentCandidates);
             f(candidates,currentCandidates,target,i);
