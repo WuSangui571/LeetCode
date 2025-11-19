@@ -76,15 +76,16 @@ public class Q_10 {
         int pIndex = 0;
         int n = s.length();
 
-        while (sIndex < s.length() && pIndex < p.length()) {
-            for (int i = sIndex; i < n; i++) {
-                for (int j = 1; j <= n - 1 - sIndex; j++) {
-                    if (f(s.substring(sIndex, sIndex + j), p.charAt(pIndex))) {
-
-                    }
-                }
-            }
-        }
+//        while (sIndex < s.length() && pIndex < p.length()) {
+//            for (int i = sIndex; i < n; i++) {
+//                for (int j = 1; j <= n - 1 - sIndex; j++) {
+//                    if (f(s.substring(sIndex, sIndex + j), p.charAt(pIndex))) {
+//
+//                    }
+//                }
+//            }
+//        }
+        return false;
     }
 
     /**
