@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="2025-11-14" />
+        <module name="2025-11-25" />
         <module name="2025-11-17" />
         <module name="2025-05-20" />
         <module name="2025-11-16" />
+        <module name="2025-11-27" />
         <module name="2025-05-12" />
         <module name="2025-11-11" />
         <module name="2025-11-22" />
@@ -22,6 +24,7 @@
         <module name="2025-11-23" />
         <module name="2025-11-19" />
         <module name="2025-11-18" />
+        <module name="2025-11-29" />
         <module name="2025-05-15" />
         <module name="2025-05-17" />
         <module name="2025-05-19" />
