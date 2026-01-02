@@ -42,6 +42,7 @@
         <module name="2025-05-15" />
         <module name="2025-05-17" />
         <module name="2025-05-19" />
+        <module name="2026-01-02" />
       </profile>
     </annotationProcessing>
   </component>
