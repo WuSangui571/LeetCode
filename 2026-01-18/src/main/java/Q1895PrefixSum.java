@@ -1,4 +1,4 @@
-import java.sql.SQLOutput;
+import java.util.Arrays;
 
 /**
  * @Author: sangui
@@ -6,7 +6,8 @@ import java.sql.SQLOutput;
  * @Description:
  * @Version: 1.0
  */
-public class Q1895 {
+public class Q1895PrefixSum {
+    int[][] p;
     public static void main(String[] args) {
         // 3
         int[][] grid = {{7, 1, 4, 5, 6}, {2, 5, 1, 6, 4}, {1, 5, 4, 3, 2}, {1, 2, 7, 3, 4}};
@@ -14,15 +15,22 @@ public class Q1895 {
         // 2
 //        int[][] grid = {{5,1,3,1},{9,3,3,1{,}1,3,3,8}};
 
-        Q1895 obj = new Q1895();
+        Q1895PrefixSum obj = new Q1895PrefixSum();
         int res = obj.largestMagicSquare(grid);
 //        boolean res = obj.isMagicSquare(grid,1,1,3);
         System.out.println(res);
     }
-
     public int largestMagicSquare(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
+        p = new int[m + 1][n + 1];
+        // 计算前缀和数组
+        for (int r = 0; r < m; r++) {
+            for (int c = 0; c < n; c++) {
+                p[r + 1][c + 1] = (grid[r][c] + p[r][c + 1] + p[r + 1][c] - p[r][c]);
+            }
+        }
+        System.out.println(Arrays.deepToString(p));
         // k 的最大值
         for (int k = Math.min(m, n); k >= 2; k--) {
             for (int r = 0; r <= m - k; r++) {
@@ -36,15 +44,6 @@ public class Q1895 {
         }
         return 1;
     }
-
-    /**
-     *
-     * @param grid 题目的大矩阵
-     * @param r    左上角的行数
-     * @param c    左上角的列数
-     * @param k    边长
-     * @return 分隔的小矩阵是否是幻方
-     */
     public boolean isMagicSquare(int[][] grid, int r, int c, int k) {
         int m = grid.length;
         int n = grid[0].length;
@@ -52,34 +51,25 @@ public class Q1895 {
         if ((r + k > m) || (c + k > n)) {
             return false;
         }
-        int value = 0;
-        int temp = 0;
         // 计算第一行作为 value
-        for (int j = c; j < (c + k); j++) {
-            value += grid[r][j];
-        }
+        int value = p[r+1][c+k] - p[r][c+k] - p[r+1][c] + p[r][c];
+        int temp = 0;
+
         // 横向（行）
         for (int i = r + 1; i < (r + k); i++) {
-            for (int j = c; j < (c + k); j++) {
-                temp += grid[i][j];
-            }
+            temp = p[i+1][c+k] - p[i][c+k] - p[i+1][c] + p[i][c];
             if (temp != value) {
                 return false;
-            } else {
-                temp = 0;
             }
         }
         // 竖向（列）
         for (int j = c; j < (c + k); j++) {
-            for (int i = r; i < (r + k); i++) {
-                temp += grid[i][j];
-            }
+            temp = p[r+k][j+1] - p[r][j+1] - p[r+k][j] + p[r][j];;
             if (temp != value) {
                 return false;
-            } else {
-                temp = 0;
             }
         }
+        temp = 0;
         // 撇向对角线
         for (int i = r; i < (r + k); i++) {
             int j = c + k - i + r - 1;
