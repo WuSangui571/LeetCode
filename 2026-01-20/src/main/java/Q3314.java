@@ -30,7 +30,8 @@ public class Q3314 {
                 continue;
             }else {
 //                ans[i] = f(item);
-                ans[i] = f2(item);
+//                ans[i] = f2(item);
+                ans[i] = item-(1<<(Integer.numberOfTrailingZeros(~item)-1));
             }
 
         }
